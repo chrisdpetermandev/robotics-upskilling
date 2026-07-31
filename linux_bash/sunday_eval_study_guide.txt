@@ -1,0 +1,57 @@
+================================================================================
+LINUX & BASH SUNDAY EVALUATION STUDY GUIDE
+Robotics Transition | Final Terminal Practice & Prep
+================================================================================
+
+GOAL: Use these targeted drills to lock in muscle memory before Sunday's final
+evaluation. Focus on seamless execution, proper redirection, line-numbered 
+searches, and exact PID targeting.
+
+--------------------------------------------------------------------------------
+PRACTICE DRILL 1: LOG APPENDING & FILE CREATION
+--------------------------------------------------------------------------------
+Objective: Practice creating directories on the fly and appending log data.
+
+1. In a single command, create directory `~/Desktop/Study/logs/robot`.
+2. Append `"EVENT: System booted\n"` to `~/Desktop/Study/logs/robot/event.log`.
+3. Append `"EVENT: Lidar calibrated\n"` to the same file.
+4. Verify `event.log` contains EXACTLY two lines using `cat` or `tail`.
+
+--------------------------------------------------------------------------------
+PRACTICE DRILL 2: RECURSIVE GREP INSPECTION
+--------------------------------------------------------------------------------
+Objective: Practice locating target strings across nested folders with line numbers.
+
+1. Search recursively inside `~/Desktop/Study` for all occurrences of `"EVENT"`.
+2. Ensure your search command displays both the line numbers (`-n`) and 
+   file paths (`-r`).
+
+--------------------------------------------------------------------------------
+PRACTICE DRILL 3: PROCESS TARGETING WITH PGREP & KILL
+--------------------------------------------------------------------------------
+Objective: Practice backgrounding and cleanly terminating processes using PIDs.
+
+1. Launch a background task running `sleep 777 &`.
+2. Find its exact Process ID (PID) using `pgrep -f "sleep 777"`.
+3. Kill the process using `kill -9 <PID>`.
+4. Verify it was killed by trying to run `pgrep -f "sleep 777"` again (should return blank).
+
+--------------------------------------------------------------------------------
+PRACTICE DRILL 4: ENV VARIABLES & SOURCING
+--------------------------------------------------------------------------------
+Objective: Master persistent environment variable assignment.
+
+1. Add `export ROBOT_MODE="AUTONOMOUS"` to the bottom of `~/.bashrc`.
+2. Source your config using `source ~/.bashrc`.
+3. Verify `echo $ROBOT_MODE` prints `AUTONOMOUS`.
+
+--------------------------------------------------------------------------------
+SUNDAY EVALUATION CHECKLIST
+--------------------------------------------------------------------------------
+Before pasting your terminal history on Sunday, double-check:
+[ ] Used `>>` for appending (never accidental `>` overwrites)
+[ ] Created directories with `mkdir -p` to prevent path errors
+[ ] Targeted processes cleanly with `pgrep -f`
+[ ] Used `grep -rn` to include line numbers in searches
+[ ] Applied permissions with `chmod +x` before running local scripts
+================================================================================

@@ -1,0 +1,87 @@
+================================================================================
+LINUX & BASH DRILL SYSTEM (WEEKLY UP-SKILLING FRAMEWORK)
+Software QA to Robotics Transition | Terminal Execution & Muscle Memory
+================================================================================
+
+GOAL: Spend 15-30 minutes each evening running through the daily drills to build 
+reflexive muscle memory. On Sunday, execute the Master Review Drill to test 
+readiness before moving to Python for Robotics & Tooling.
+
+--------------------------------------------------------------------------------
+DAILY DRILL 1: PERMISSIONS & EXECUTION (MONDAY)
+--------------------------------------------------------------------------------
+1. Navigate to `~/Desktop/BaseLevel`.
+2. Create a script named `daily_run.sh` containing `echo "System Operational"`.
+3. Try running `./daily_run.sh` (confirm permission error).
+4. Grant execution permissions using `chmod +x daily_run.sh`.
+5. Execute the script successfully and verify output.
+6. Remove execution permissions using `chmod -x daily_run.sh` and verify failure.
+
+
+--------------------------------------------------------------------------------
+DAILY DRILL 2: ENVIRONMENT VARIABLES & BASH CONFIG (TUESDAY)
+--------------------------------------------------------------------------------
+1. In your current terminal, run `export ROBOT_IP="192.168.1.50"`.
+2. Print the variable using `echo $ROBOT_IP`.
+3. Open a second terminal tab and verify `echo $ROBOT_IP` returns blank.
+4. Open `~/.bashrc` using `nano ~/.bashrc` (or `code ~/.bashrc`).
+5. Add `export WEEKLY_DRILL="Active"` at the bottom and save.
+6. Return to your terminal and run `source ~/.bashrc`.
+7. Verify `echo $WEEKLY_DRILL` returns "Active" in ANY new terminal window.
+
+
+--------------------------------------------------------------------------------
+DAILY DRILL 3: PROCESS MANAGEMENT & OVERWATCH (WEDNESDAY)
+--------------------------------------------------------------------------------
+1. Launch two separate background tasks:
+   $ sleep 200 &
+   $ sleep 400 &
+2. List all active processes matching 'sleep' using `ps aux | grep sleep`.
+3. Find the exact PID of the 200-second sleep process using `pgrep -f "sleep 200"`.
+4. Kill the 200-second process using `kill <PID>`.
+5. Force-kill the remaining 400-second process using `pkill -9 -f "sleep 400"`.
+6. Open `htop`, sort processes by CPU/Memory usage, and press `q` to exit.
+
+
+--------------------------------------------------------------------------------
+DAILY DRILL 4: FILE STRUCTURES & LOG SEARCHING (THURSDAY)
+--------------------------------------------------------------------------------
+1. Create a nested test directory structure in one command:
+   $ mkdir -p ~/Desktop/BaseLevel/logs/robot1
+2. Create a log file `~/Desktop/BaseLevel/logs/robot1/system.log` with the text:
+   "INFO: Motor started
+ERROR: Lidar stream disconnected
+INFO: Motor stopped"
+3. Run `tree ~/Desktop/BaseLevel/logs` to view the directory hierarchy.
+4. Search specifically for "ERROR" inside the logs directory:
+   $ grep -rnw "ERROR" ~/Desktop/BaseLevel/logs/
+5. Find the full binary path of Python and Git on your system:
+   $ which python3
+   $ which git
+
+
+--------------------------------------------------------------------------------
+DAILY DRILL 5: SPEED COMBINATION DRILL (FRIDAY / SATURDAY)
+--------------------------------------------------------------------------------
+Complete this sequence as fast as possible without looking at reference notes:
+1. Make directory `~/Desktop/BaseLevel/speed_test`.
+2. Create `runner.sh` inside it that appends "Run logged" to `history.log`.
+3. Make `runner.sh` executable.
+4. Run `./runner.sh`.
+5. Use `tail -n 1 history.log` to verify the output.
+6. Launch `sleep 500 &` and instantly terminate it using `pkill -f "sleep 500"`.
+
+
+--------------------------------------------------------------------------------
+SUNDAY MASTER REVIEW DRILL (THE MOVE-ON GATEWAY)
+--------------------------------------------------------------------------------
+Do not use helper scripts or AI tools during this test. Execute these tasks 
+and paste your final terminal history output into our chat on Sunday:
+
+TASK A: Create directory `~/Desktop/BaseLevel/sunday_eval`.
+TASK B: Create a file `check.sh` that prints "Status: OK" and export a variable 
+        `EVAL_STATUS="Passed"` directly inside your `.bashrc`.
+TASK C: Make `check.sh` executable and run it cleanly.
+TASK D: Launch a background process `sleep 600 &`, locate its PID, and kill it.
+TASK E: Run `history | tail -n 15` and copy/paste the output here for review!
+================================================================================
