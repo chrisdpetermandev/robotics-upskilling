@@ -6,8 +6,7 @@ def get_parent_directory() -> Path:
     if log_dir.exists():
         return log_dir
     else:
-        print("[ERROR]: Could not find Path.home()/Desktop/Robotics-Upskilling")
-        raise FileNotFoundError
+        raise FileNotFoundError(f"Target directory does not exist:{log_dir}")
         
 
 def scan_markdown_files(log_dir: Path) -> None:
